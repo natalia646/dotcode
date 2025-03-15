@@ -1,14 +1,16 @@
 // import { useState } from 'react'
-import './App.css'
+import { Outlet } from "react-router";
+import { Navigation } from "./components/Navigation/Navigation";
 
-function App() {
+export const App = () => {
   // const [count, setCount] = useState(0)
 
   return (
     <>
-
+      <Navigation />
+      <Outlet />
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
