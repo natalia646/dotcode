@@ -1,0 +1,31 @@
+.bloks {
+  position: relative;
+}
+
+.blok {
+  position: absolute;
+  border: 1px solid #7e7e7ecd;
+  background-color: #ededed;
+
+  &:active {
+    background: #99d9f5;
+  }
+}
+
+.section {
+  display: flex;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wrapper {
+  position: relative;
+
+  &:active {
+    z-index: 100;
+  }
+}
