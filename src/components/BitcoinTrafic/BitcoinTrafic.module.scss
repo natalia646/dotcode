@@ -1,6 +1,12 @@
 @use "../../styles/constants/constants.scss";
+
 .wrapper {
   margin: 8px;
+
+  button {
+    margin: 0 8px 8px 0;
+    padding: 4px 8px;
+  }
 }
 
 .table {
@@ -15,9 +21,4 @@
     max-width: 200px;
     overflow: hidden;
   }
-}
-
-.button {
-  margin: 0 8px 8px 0;
-  padding: 4px 8px;
 }
