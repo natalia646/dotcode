@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
-import { Transaction } from "../types/Transaction.type";
+import { Transaction } from "../../types/Transaction.type";
 import { Table } from "./Table";
 import { useWsConnect } from "../../hooks/useWsConnect";
 import styles from "./BitcoinTrafic.module.scss";

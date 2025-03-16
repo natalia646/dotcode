@@ -2,7 +2,7 @@ import { Resizable } from "re-resizable";
 import { RefObject, useRef, useState } from "react";
 import Draggable from "react-draggable";
 import styles from "../Workspace.module.scss";
-import { Block } from "../../types/Block.type";
+import { Block } from "../../../types/Block.type";
 import { BlockContent } from "./BlockContent";
 
 type Props = {

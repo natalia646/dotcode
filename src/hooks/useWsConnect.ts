@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { Transaction } from "../components/types/Transaction.type";
+import { Transaction } from "../types/Transaction.type";
 import { BITCOIN_WS_URL } from "../constants/constants";
 
 const connection = JSON.stringify({ op: "unconfirmed_sub" });

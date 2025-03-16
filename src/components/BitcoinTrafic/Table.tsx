@@ -1,4 +1,4 @@
-import { Transaction } from "../types/Transaction.type";
+import { Transaction } from "../../types/Transaction.type";
 import styles from "./BitcoinTrafic.module.scss";
 
 const NO_DATA = "---";
