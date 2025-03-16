@@ -4,6 +4,7 @@ import Draggable from "react-draggable";
 import styles from "../Workspace.module.scss";
 import { Block } from "../../../types/Block.type";
 import { BlockContent } from "./BlockContent";
+import { useDragResize } from "../../../hooks/useDragResize";
 
 type Props = {
   block: Block;
@@ -14,24 +15,10 @@ export const WorkspaceBlock: React.FC<Props> = ({ block, setBlocks }) => {
   const nodeRef = useRef<HTMLDivElement>(null) as RefObject<HTMLDivElement>;
   const [isResizing, setIsResizing] = useState(false);
 
-  const handleResize = (blockId: number, width: number, height: number) => {
-    setBlocks((prev) =>
-      prev.map((block) =>
-        block.id === blockId ? { ...block, width, height } : block
-      )
-    );
-    setIsResizing(false);
-  };
-
-  const handleDrag = (blockId: number, x: number, y: number) => {
-    setBlocks((prev) =>
-      prev.map((block) => (block.id === blockId ? { ...block, x, y } : block))
-    );
-  };
-
-  const removeBlock = (blockId: number) => {
-    setBlocks((prev) => prev.filter((item) => item.id !== blockId));
-  };
+  const { resizeBlock, dragBlock, removeBlock } = useDragResize({
+    setBlocks,
+    setIsResizing,
+  });
 
   return (
     <div className={styles.wrapper}>
@@ -40,13 +27,13 @@ export const WorkspaceBlock: React.FC<Props> = ({ block, setBlocks }) => {
         disabled={isResizing}
         key={block.id}
         position={{ x: block.x, y: block.y }}
-        onStop={(_, data) => handleDrag(block.id, data.x, data.y)}>
+        onStop={(_, data) => dragBlock(block.id, data.x, data.y)}>
         <div ref={nodeRef} className={styles.blok}>
           <Resizable
             size={{ width: block.width, height: block.height }}
             onResizeStart={() => setIsResizing(true)}
             onResizeStop={(_e, _direction, _ref, d) =>
-              handleResize(
+              resizeBlock(
                 block.id,
                 block.width + d.width,
                 block.height + d.height
