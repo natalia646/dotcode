@@ -6,3 +6,4 @@ export const INITIAL_BLOCKS = [
   { id: 5, x: 0, y: 300, width: 300, height: 100, zIndex: 1 },
 ];
 
+export const BITCOIN_WS_URL = "wss://ws.blockchain.info/inv";

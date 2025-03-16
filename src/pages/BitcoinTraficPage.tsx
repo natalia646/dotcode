@@ -1,7 +1,3 @@
-export const BitcoinTraficPage = () => {
-  return (
-    <div>
-      BitcoinTraficPage
-    </div>
-  )
-}
+import { BitcoinTrafic } from "../components/BitcoinTrafic/BitcoinTrafic";
+
+export const BitcoinTraficPage = () => <BitcoinTrafic />;
