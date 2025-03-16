@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
 import { Transaction } from "../types/Transaction.type";
 import { Table } from "./Table";
