@@ -1,0 +1,13 @@
+@use "../../styles/constants/constants.scss";
+
+.link {
+  text-decoration: none;
+  padding: 2px;
+  color: constants.$main-txt-color;
+  font-size: 18px;
+  margin: 10px;
+}
+
+.active {
+  border-bottom: 1px solid constants.$main-txt-color;
+}

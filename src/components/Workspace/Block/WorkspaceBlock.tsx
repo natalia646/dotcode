@@ -1,8 +1,9 @@
 import { Resizable } from "re-resizable";
-import { useRef, useState } from "react";
+import { RefObject, useRef, useState } from "react";
 import Draggable from "react-draggable";
-import styles from "./Workspace.module.scss";
-import { Block } from "../types/Block.type";
+import styles from "../Workspace.module.scss";
+import { Block } from "../../types/Block.type";
+import { BlockContent } from "./BlockContent";
 
 type Props = {
   block: Block;
@@ -10,7 +11,7 @@ type Props = {
 };
 
 export const WorkspaceBlock: React.FC<Props> = ({ block, setBlocks }) => {
-  const nodeRef = useRef(null);
+  const nodeRef = useRef<HTMLDivElement>(null) as RefObject<HTMLDivElement>;
   const [isResizing, setIsResizing] = useState(false);
 
   const handleResize = (blockId: number, width: number, height: number) => {
@@ -32,19 +33,15 @@ export const WorkspaceBlock: React.FC<Props> = ({ block, setBlocks }) => {
     setBlocks((prev) => prev.filter((item) => item.id !== blockId));
   };
 
-
   return (
-    <div className={styles.wrapper} >
+    <div className={styles.wrapper}>
       <Draggable
         nodeRef={nodeRef}
         disabled={isResizing}
         key={block.id}
         position={{ x: block.x, y: block.y }}
         onStop={(_, data) => handleDrag(block.id, data.x, data.y)}>
-        <div
-          ref={nodeRef}
-          className={styles.blok}
-          >
+        <div ref={nodeRef} className={styles.blok}>
           <Resizable
             size={{ width: block.width, height: block.height }}
             onResizeStart={() => setIsResizing(true)}
@@ -55,10 +52,7 @@ export const WorkspaceBlock: React.FC<Props> = ({ block, setBlocks }) => {
                 block.height + d.height
               )
             }>
-            <div className={styles.top}>
-              <p>Title {block.id}</p>
-              <button onClick={() => removeBlock(block.id)}>X</button>
-            </div>
+            <BlockContent id={block.id} removeBlock={removeBlock} />
           </Resizable>
         </div>
       </Draggable>

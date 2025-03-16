@@ -1,0 +1,13 @@
+@use "./constants/constants.scss";
+
+#root{
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    color: constants.$main-txt-color;
+}
+button{
+    background-color: constants.$main-txt-color;
+    color: constants.$main-bg-color;
+    border-radius: 4px;
+}
