@@ -1,3 +1,5 @@
 import { BitcoinTrafic } from "../components/BitcoinTrafic/BitcoinTrafic";
 
-export const BitcoinTraficPage = () => <BitcoinTrafic />;
+const BitcoinTraficPage = () => <BitcoinTrafic />;
+
+export default BitcoinTraficPage
