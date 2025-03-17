@@ -10,7 +10,7 @@
 }
 
 .table_wrapper{
-  overflow-x: auto;
+   overflow-x: auto;
 }
 
 .table {
@@ -22,7 +22,9 @@
   td {
     padding: 4px;
     border: 1px solid constants.$main-txt-color;
-    min-width: 200px;
+    max-width: 200px;
+    min-width: 130px;
     overflow: hidden;
+    text-overflow: ellipsis;
   }
 }

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { INITIAL_BLOCKS } from "../../constants/constants";
 import { WorkspaceBlock } from "./WorcspaceBlock/WorkspaceBlock";
-import styles from "./Workspace.module.scss";
 import { Block } from "../../types/Block.type";
+import styles from "./Workspace.module.scss";
 
 export const Workspace = () => {
   const savedBlocks = localStorage.getItem("blocks");
