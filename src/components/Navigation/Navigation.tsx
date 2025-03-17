@@ -7,7 +7,7 @@ export const Navigation = () => {
     isActive ? `${styles.link} ${styles.active} ` : styles.link;
 
   return (
-    <nav>
+    <nav className={styles.navigation}>
       <NavLink className={linkStyle} to={PATH.WORKSPACE}>
         Interactive Workspace
       </NavLink>

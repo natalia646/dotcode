@@ -9,6 +9,10 @@
   }
 }
 
+.table_wrapper{
+  overflow-x: auto;
+}
+
 .table {
   width: 100%;
   text-align: left;
@@ -18,7 +22,7 @@
   td {
     padding: 4px;
     border: 1px solid constants.$main-txt-color;
-    max-width: 200px;
+    min-width: 200px;
     overflow: hidden;
   }
 }

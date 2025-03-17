@@ -9,23 +9,25 @@ type Props = {
 
 export const Table: React.FC<Props> = ({ transactions }) => {
   return (
-    <table className={styles.table}>
-      <thead>
-        <tr>
-          <th>From</th>
-          <th>To</th>
-          <th>Amount</th>
-        </tr>
-      </thead>
-      <tbody>
-        {transactions.map((tx) => (
-          <tr key={tx.hash}>
-            <td> {tx.inputs?.[0]?.prev_out?.addr || NO_DATA} </td>
-            <td> {tx.out?.[0]?.addr || NO_DATA} </td>
-            <td> {(tx.out?.[0]?.value / 100000000).toFixed(8)} BTC</td>
+<div className={styles.table_wrapper}>
+      <table className={styles.table}>
+        <thead>
+          <tr>
+            <th>From</th>
+            <th>To</th>
+            <th>Amount</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {transactions.map((tx) => (
+            <tr key={tx.hash}>
+              <td> {tx.inputs?.[0]?.prev_out?.addr || NO_DATA} </td>
+              <td> {tx.out?.[0]?.addr || NO_DATA} </td>
+              <td> {(tx.out?.[0]?.value / 100000000).toFixed(8)} BTC</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+</div>
   );
 };
